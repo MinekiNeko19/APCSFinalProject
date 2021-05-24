@@ -1,7 +1,9 @@
-void setup {
+
+void setup() {
   background(200);
-  size(900,700);
+  size(800,600);
 }
-void draw {
+
+void draw() {
 
 }
