@@ -29,5 +29,8 @@ class Rod {
   void drawLine() {
     stroke(0);
     line(x,y,x,y+lineLen);
+    noStroke();
+    fill(255,0,0,50);
+    ellipse(x,y+lineLen,baitSize*10,baitSize*10);
   }
 }
