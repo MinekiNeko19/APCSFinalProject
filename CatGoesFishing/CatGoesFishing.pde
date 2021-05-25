@@ -13,19 +13,15 @@ void draw() {
   if (keyPressed) {
     if (keyCode == LEFT) {
       player.moveLeft(10);
-      player.drawCat();
     }
     if (keyCode == RIGHT) {
       player.moveRight(10);
-      player.drawCat();
     }
     if (keyCode == UP) {
       player.reelLine();
-      player.drawCat();
     }
     if (keyCode == DOWN) {
       player.dropLine();
-      player.drawCat();
     }
   }
   player.drawCat();
