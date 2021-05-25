@@ -5,6 +5,7 @@ class Cat {
   private int y;
   private int w;
   private int h;
+  private Rod r;
     
   Cat() {
     currency = 0;
@@ -13,6 +14,7 @@ class Cat {
     y = 270;
     w = 50;
     h = 80;
+    r = new Rod(x,y);
   }
     
   void drawCat() { // will be more complicated when adding graphics
@@ -25,6 +27,9 @@ class Cat {
     //boat
     fill(100,25,10);
     rect(x-2*w,y-25,4*w,25);
+    
+    // rod
+    r.drawLine();
   }
     
   void moveLeft(int step) {
@@ -32,6 +37,7 @@ class Cat {
     if (x< w/2) { // boundaries will change when background and camera work are implemented
       x = w/2;
     }
+    r.adjust(0,x,y);
   }
   
   void moveRight(int step) {
@@ -39,5 +45,14 @@ class Cat {
       if (x>width-w/2) { // boundaries will change when background and camera work are implemented
         x = width-w/2;
       }
+      r.adjust(0,x,y);
+  }
+  
+  void dropLine() {
+    r.adjust(2,x,y);
+  }
+  
+  void reelLine() {
+    r.adjust(-2,x,y);
   }
 }
