@@ -1,5 +1,5 @@
 class Fish{
-  float Size, x, y, dx, dy;
+  float Size, x, y, dx, dy,radius;
   Boolean Hooked;
   double value;
   String type;
@@ -14,16 +14,17 @@ class Fish{
     if(Size==0){
       type= "small";
       value=5;
-
+      radius=20;
     }
     if (Size==1){
       type= "medium";
       value= 10;
-     
+      radius=40;
     }
     if (Size==2){
       type= "large";
       value=15;
+      radius=80;
     }
   }
   double GetValue(){//returns the value of the fish
@@ -31,7 +32,10 @@ class Fish{
   }
   void move(){ // movement of fish 
     x += dx;
-    y += dy;
+    //y += dy; for now no y so it doesnt move horizantally
+    if (x >= width - radius || x <= radius){
+      dx *= -1;
+    }
   }
   void drawFish(){
     noStroke();

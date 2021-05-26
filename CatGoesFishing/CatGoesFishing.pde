@@ -11,7 +11,7 @@ void setup() {
   for (int i=0;i<10;i++){
     int size= (int)random(3);
     float y= random(270,height);
-    float x= random(width);
+    float x= random(width-1);
     swimmers.add(new Fish(size,x,y,2,2));
   }
 }
