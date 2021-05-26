@@ -33,4 +33,8 @@ class Rod {
     fill(255,0,0,50);
     ellipse(x,y+lineLen,baitSize*10,baitSize*10);
   }
+  
+  int bait() {
+    return baitSize;
+  }
 }
