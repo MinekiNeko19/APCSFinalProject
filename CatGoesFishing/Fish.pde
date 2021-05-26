@@ -26,6 +26,8 @@ class Fish{
       value=15;
     }
   }
-  
+  double GetValue(){
+    return value;
+  }
 
 }
