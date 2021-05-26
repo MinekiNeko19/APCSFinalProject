@@ -4,7 +4,7 @@ class Fish{
   double value;
   String type;
   
-  Fish(int Size, float x, float y,float dx, float dy){
+  Fish(int Size, float x, float y,float dx, float dy){//constructs a fish
     this.Size=Size;
     Hooked=false;
     this.x=x;
@@ -26,8 +26,27 @@ class Fish{
       value=15;
     }
   }
-  double GetValue(){
+  double GetValue(){//returns the value of the fish
     return value;
+  }
+  void move(){ // movement of fish 
+    x += dx;
+    y += dy;
+  }
+  void drawFish(){
+    noStroke();
+    if(Size==0){
+      fill();
+      ellipse(x, y, 2, 2);
+    }
+    if (Size==1){
+      fill();
+      ellipse(x, y, 4, 4);
+    }
+    if (Size==2){
+      fill();
+      ellipse(x, y, 8, 8);
+    }
   }
 
 }
