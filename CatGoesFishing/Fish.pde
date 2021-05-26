@@ -36,15 +36,15 @@ class Fish{
   void drawFish(){
     noStroke();
     if(Size==0){
-      fill();
+      fill(51,255,255);
       ellipse(x, y, 2, 2);
     }
     if (Size==1){
-      fill();
+      fill(0,255,0);
       ellipse(x, y, 4, 4);
     }
     if (Size==2){
-      fill();
+      fill(255,0,0);
       ellipse(x, y, 8, 8);
     }
   }
