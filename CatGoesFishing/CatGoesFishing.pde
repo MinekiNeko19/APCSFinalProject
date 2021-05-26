@@ -9,7 +9,7 @@ void setup() {
   player.drawCat();
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<10;i++){
-    int size= random(3);
+    int size= (int)random(3);
     float y= random(270,height);
     float x= random(width);
     swimmers.add(new Fish(size,x,y,2,2));
