@@ -8,3 +8,7 @@ Prototype:https://docs.google.com/document/d/1lBjIP9ZUeaBPYP2nQREMJ4cS84A-YERTrz
 5/26/21 Vivien: added Fish class; implemented basic movement and spawning of fish
 
 5/27/21 Sarah: added a way to sell fish and hook fish to the rod
+
+5/28/21 Vivien: shifted fish spawning
+
+5/28/21 Sarah: fixed the spazzy fish and added water
