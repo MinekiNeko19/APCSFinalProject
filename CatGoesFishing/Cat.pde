@@ -56,14 +56,22 @@ class Cat {
     r.adjust(-2,x,y);
   }
   
-  boolean checkLine() {
-    return false;
+  void caught(Fish f) {
+    r.caught(f);
+  }
+  void sell() {
+    currency += r.checkHook().GetValue();
+    r.release();
   }
     
+  // returns the stats of the cat 
   int bx() {
     return r.bx();
   }
   int by() {
     return r.by();
+  }
+  int points() {
+    return currency;
   }
 }

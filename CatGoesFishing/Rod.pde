@@ -4,6 +4,7 @@ class Rod {
   private int baitSize;
   private int x,y;
   private int lineLen;
+  private Fish f;
   
   Rod(int xcor, int ycor) {
     speed = 10;
@@ -34,8 +35,13 @@ class Rod {
     ellipse(x,y+lineLen,baitSize*10,baitSize*10);
   }
   
-  void caught() {
-    
+  void caught(Fish fish) {
+    baitSize = -1;
+    f = fish;
+  }
+  void release() {
+    baitSize = 0;
+    f = null;
   }
   
   int bait() {
@@ -46,5 +52,8 @@ class Rod {
   }
   int by() {
     return y+lineLen;
+  }
+  Fish checkHook() {
+    return f;
   }
 }

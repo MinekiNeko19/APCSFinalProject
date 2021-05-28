@@ -18,8 +18,12 @@ void setup() {
 
 void draw() {
   background(125,200,250);
+  textSize(20);
+  fill(0);
+  text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
     if (f.hook(player.bx(),player.by())) {
+      player.caught(f);
       f.moveTo(player.bx(),player.by());
     }
     f.move();
@@ -37,6 +41,9 @@ void draw() {
     }
     if (keyCode == DOWN) {
       player.dropLine();
+    }
+    if (player.by() == 270 && keyCode == 32) { // spacebar
+      player.sell();
     }
   }
   player.drawCat();
