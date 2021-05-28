@@ -17,6 +17,11 @@ void setup() {
 
 void draw() {
   background(125,200,250);
+  // draws in the water
+  noStroke();
+  fill(20,10,255,200);
+  rect(0,260,width,height);
+  // reports the currency
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);

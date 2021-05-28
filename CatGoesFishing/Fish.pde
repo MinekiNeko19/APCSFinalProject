@@ -46,10 +46,17 @@ class Fish{
   }
   
   void move(){ // movement of fish 
-    x += dx;
-    //y += dy; for now no y so it moves horizantally
-    if (x >= width - radius || x <= radius){
-      dx *= -1;
+    if (!Hooked){
+      x += dx;
+      //y += dy; for now no y so it doesnt move horizantally
+      if (x >= width - radius){
+        dx *= -1;
+        x = width-radius;        
+      }
+      if (x <= radius) {
+        dx *= -1;
+        x = radius;
+      }
     }
   }
   void drawFish(){
