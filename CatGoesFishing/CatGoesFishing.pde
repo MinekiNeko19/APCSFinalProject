@@ -9,7 +9,7 @@ void setup() {
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<10;i++){
     int size= (int)random(3);
-    float y= random(280,height);
+    float y= random(350,height);
     float x= random(width-80)+40; // border of 40
     swimmers.add(new Fish(size,x,y,2,2));
   }
