@@ -1,7 +1,6 @@
 Cat player;
 ArrayList<Fish> swimmers;
 
-
 void setup() {
   background(125,200,250);
   size(1080,810);
@@ -22,9 +21,9 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (f.hook(player.bx(),player.by())) {
+    if (f.hook(player.rod().bx(),player.rod().by())) {
       player.caught(f);
-      f.moveTo(player.bx(),player.by());
+      f.moveTo(player.rod().bx(),player.rod().by());
     }
     f.move();
     f.drawFish();
@@ -42,8 +41,9 @@ void draw() {
     if (keyCode == DOWN) {
       player.dropLine();
     }
-    if (player.by() == 270 && keyCode == 32) { // spacebar
-      player.sell();
+    if (player.rod().checkHook() != null &&
+        player.rod().by()<= 280 && keyCode == 32) { // spacebar
+      println(swimmers.remove(player.sell()));
     }
   }
   player.drawCat();

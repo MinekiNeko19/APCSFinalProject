@@ -39,9 +39,11 @@ class Rod {
     baitSize = -1;
     f = fish;
   }
-  void release() {
+  Fish release() {
+    Fish temp = f;
     baitSize = 0;
     f = null;
+    return temp;
   }
   
   int bait() {

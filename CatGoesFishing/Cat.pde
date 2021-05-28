@@ -59,17 +59,15 @@ class Cat {
   void caught(Fish f) {
     r.caught(f);
   }
-  void sell() {
+  Fish sell() {
     currency += r.checkHook().GetValue();
-    r.release();
+    return r.release();
   }
     
   // returns the stats of the cat 
-  int bx() {
-    return r.bx();
-  }
-  int by() {
-    return r.by();
+  // rod stats
+  Rod rod() {
+    return r;
   }
   int points() {
     return currency;
