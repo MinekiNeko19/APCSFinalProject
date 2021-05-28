@@ -44,6 +44,7 @@ void draw() {
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 280 && keyCode == 32) { // spacebar
       println(swimmers.remove(player.sell()));
+      swimmers.add(new Fish((int)random(3),random(width-80)+40,random(270,height),2,2));
     }
   }
   player.drawCat();
