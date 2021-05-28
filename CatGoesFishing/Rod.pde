@@ -34,7 +34,17 @@ class Rod {
     ellipse(x,y+lineLen,baitSize*10,baitSize*10);
   }
   
+  void caught() {
+    
+  }
+  
   int bait() {
     return baitSize;
+  }
+  int bx() {
+    return x;
+  }
+  int by() {
+    return y+lineLen;
   }
 }

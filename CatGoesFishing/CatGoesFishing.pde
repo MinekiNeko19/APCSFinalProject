@@ -19,6 +19,9 @@ void setup() {
 void draw() {
   background(125,200,250);
   for (Fish f : swimmers) {
+    if (f.hook(player.bx(),player.by())) {
+      f.moveTo(player.bx(),player.by());
+    }
     f.move();
     f.drawFish();
   }

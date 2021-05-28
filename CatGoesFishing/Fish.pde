@@ -27,9 +27,24 @@ class Fish{
       radius=80;
     }
   }
+  
   double GetValue(){//returns the value of the fish
     return value;
   }
+  
+  boolean hook(int bx, int by) {
+    if (bx < x+radius && bx > x-radius && by < y+radius && by > y-radius) {
+      Hooked = true;
+      moveTo(bx,by);
+    }
+    return Hooked;
+  }
+  
+  void moveTo(int newX, int newY) {
+    x = newX;
+    y = newY;
+  }
+  
   void move(){ // movement of fish 
     x += dx;
     //y += dy; for now no y so it doesnt move horizantally

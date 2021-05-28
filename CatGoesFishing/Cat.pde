@@ -55,4 +55,15 @@ class Cat {
   void reelLine() {
     r.adjust(-2,x,y);
   }
+  
+  boolean checkLine() {
+    return false;
+  }
+    
+  int bx() {
+    return r.bx();
+  }
+  int by() {
+    return r.by();
+  }
 }
