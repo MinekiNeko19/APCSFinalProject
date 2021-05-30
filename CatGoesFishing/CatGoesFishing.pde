@@ -9,7 +9,7 @@ void setup() {
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<10;i++){
     int size= (int)random(3);
-    float y= random(280,height);
+    float y= random(350,height);
     float x= random(width-80)+40; // border of 40
     swimmers.add(new Fish(size,x,y,2,2));
   }
@@ -26,9 +26,8 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (f.hook(player.rod().bx(),player.rod().by())) {
+    if (f.hook(player.rod().bx(),player.rod().by())) { // checks if the hook catches a fish
       player.caught(f);
-      f.moveTo(player.rod().bx(),player.rod().by());
     }
     f.move();
     f.drawFish();
