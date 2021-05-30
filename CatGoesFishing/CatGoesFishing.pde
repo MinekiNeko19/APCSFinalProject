@@ -26,10 +26,16 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (f.hook(player.rod().bx(),player.rod().by())) { // checks if the hook catches a fish
-      player.caught(f);
+    if (player.rod().checkHook()!=null) {
+      if (f == player.rod().checkHook()) {
+        f.moveTo(player.rod().bx(),player.rod().by());
+      }
     }
-    f.move();
+    else if (f.hook(player.rod().bx(),player.rod().by())) { // checks if the hook catches a fish
+      player.caught(f);
+    } else {
+      f.move();
+    }
     f.drawFish();
   }
   if (keyPressed) {
