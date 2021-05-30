@@ -26,12 +26,12 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (player.rod().checkHook()!=null) {
-      if (f == player.rod().checkHook()) {
-        f.moveTo(player.rod().bx(),player.rod().by());
-      }
+    if (f == player.rod().checkHook()) {
+      f.moveTo(player.rod().bx(), player.rod().by());
     }
-    else if (f.hook(player.rod().bx(),player.rod().by())) { // checks if the hook catches a fish
+    else if (player.rod().checkHook() == null && 
+      f.hook(player.rod().bx(), player.rod().by())) {
+      f.moveTo(player.rod().bx(), player.rod().by());
       player.caught(f);
     } else {
       f.move();
@@ -54,7 +54,7 @@ void draw() {
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 280 && keyCode == 32) { // spacebar
       println(swimmers.remove(player.sell()));
-      swimmers.add(new Fish((int)random(3),random(width-80)+40,random(270,height),2,2));
+      swimmers.add(new Fish((int)random(3),(int)random(width-80)+40,(int)random(270,height),2,2));
     }
   }
   player.drawCat();

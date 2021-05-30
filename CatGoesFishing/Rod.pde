@@ -35,7 +35,7 @@ class Rod {
   
   void caught(Fish fish) {
     f = fish;
-    baitSize = f.getSize();
+    baitSize = (int)f.getSize();
   }
   Fish release() {
     Fish temp = f;
