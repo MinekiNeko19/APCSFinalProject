@@ -1,16 +1,16 @@
 class Fish{
-  float Size, x, y, dx, dy,radius;
+  int Size, x, y, dx, dy,radius;
   Boolean Hooked;
   double value;
   String type;
   
-  Fish(int Size, float x, float y,float dx, float dy){//constructs a fish
+  Fish(int Size, int x, int y,int dx, int dy){//constructs a fish
     this.Size=Size;
     Hooked=false;
     this.x=x;
     this.y=y;
-    this.dx=(int)(dx*100)/100.0;
-    this.dy=(int)(dx*100)/100.0;
+    this.dx=dx;
+    this.dy=dy;
     if(Size==0){
       type= "small";
       value=5;
@@ -30,6 +30,9 @@ class Fish{
   
   double GetValue(){//returns the value of the fish
     return value;
+  }
+  int getSize() {
+    return Size;
   }
   
   boolean hook(int bx, int by) {
