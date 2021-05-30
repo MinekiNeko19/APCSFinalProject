@@ -1,6 +1,5 @@
 class Rod {
   private int speed;
-  private boolean isCast;
   private int baitSize;
   private int x,y;
   private int lineLen;
@@ -8,7 +7,6 @@ class Rod {
   
   Rod(int xcor, int ycor) {
     speed = 10;
-    isCast = false;
     baitSize = 0;
     x = xcor;
     y = ycor;
@@ -17,10 +15,8 @@ class Rod {
   
   void adjust(int l, int xcor, int ycor) { // if throwing rod is implemented will change or maybe use a new method for that
     lineLen += l;
-    if (lineLen > 0) isCast = true;
     if (lineLen < 0) {
       lineLen = 0;
-      isCast = false;
     }
     if (lineLen > height) lineLen -= l;
     
@@ -31,12 +27,14 @@ class Rod {
     stroke(0);
     line(x,y,x,y+lineLen);
     noStroke();
-    fill(255,0,0,50);
-    ellipse(x,y+lineLen,baitSize*10,baitSize*10);
+    if (f == null) {
+      fill(255,0,0,50);
+      ellipse(x,y+lineLen,baitSize*10,baitSize*10);
+    }
   }
   
   void caught(Fish fish) {
-    baitSize = -1;
+    baitSize = (int)f.getSize();
     f = fish;
   }
   Fish release() {
