@@ -63,7 +63,10 @@ class Cat {
     currency += r.checkHook().GetValue();
     return r.release();
   }
+  
+  void makeBait(){
     
+  }
   // returns the stats of the cat 
   // rod stats
   Rod rod() {
