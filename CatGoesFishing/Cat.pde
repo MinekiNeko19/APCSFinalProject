@@ -11,7 +11,7 @@ class Cat {
     currency = 0;
     c = color(250,250,200);
     x = 540;
-    y = 270;
+    y = 185;
     w = 50;
     h = 80;
     r = new Rod(x,y);
@@ -61,11 +61,12 @@ class Cat {
   }
   Fish sell() {
     currency += r.checkHook().GetValue();
-    return r.release();
+    return r.release(0);
   }
   
-  void makeBait(){
+  Fish makeBait(){
     
+    return r.release(1);
   }
   // returns the stats of the cat 
   // rod stats

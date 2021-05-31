@@ -8,10 +8,7 @@ void setup() {
   player.drawCat();
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<10;i++){
-    int size= (int)random(3);
-    float y= random(350,height);
-    float x= random(width-80)+40; // border of 40
-    swimmers.add(new Fish(size,x,y,2,2));
+    swimmers.add(new Fish());
   }
 }
 
@@ -20,17 +17,22 @@ void draw() {
   // draws in the water
   noStroke();
   fill(20,10,255,200);
-  rect(0,260,width,height);
+  rect(0,175,width,height);
   // reports the currency
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (f.hook(player.rod().bx(),player.rod().by())) {
-      player.caught(f);
-      f.moveTo(player.rod().bx(),player.rod().by());
+    if (f == player.rod().checkHook()) {
+      f.moveTo(player.rod().bx(), player.rod().by());
     }
-    f.move();
+    else if (player.rod().checkHook() == null && 
+      f.hook(player.rod().bx(), player.rod().by())) {
+      f.moveTo(player.rod().bx(), player.rod().by());
+      player.caught(f);
+    } else {
+      f.move();
+    }
     f.drawFish();
   }
   if (keyPressed) {
@@ -47,9 +49,13 @@ void draw() {
       player.dropLine();
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 280 && keyCode == 32) { // spacebar
-      println(swimmers.remove(player.sell()));
-      swimmers.add(new Fish((int)random(3),random(width-80)+40,random(270,height),2,2));
+        player.rod().by()<= 200 && keyCode == 32) { // spacebar
+      swimmers.remove(player.sell());
+      swimmers.add(new Fish());
+    }
+    if (player.rod().checkHook() != null &&
+        player.rod().by()<= 200 && keyCode == 16) {//shift key
+      swimmers.remove(player.makeBait());  
     }
   }
   player.drawCat();

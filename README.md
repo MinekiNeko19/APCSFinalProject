@@ -12,3 +12,5 @@ Prototype:https://docs.google.com/document/d/1lBjIP9ZUeaBPYP2nQREMJ4cS84A-YERTrz
 5/28/21 Vivien: shifted fish spawning
 
 5/28/21 Sarah: fixed the spazzy fish and added water
+
+5/30/21 Sarah: fixed hook catching more than one fish at a time and raised water levels
