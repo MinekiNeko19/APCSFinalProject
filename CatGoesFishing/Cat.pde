@@ -65,7 +65,6 @@ class Cat {
   }
   
   Fish makeBait(){
-    
     return r.release(1);
   }
   // returns the stats of the cat 
