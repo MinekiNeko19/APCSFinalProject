@@ -1,31 +1,42 @@
 class Fish{
-  float Size, x, y, dx, dy,radius;
+  int Size, x, y, dx, dy,radius;
+  color c;
   Boolean Hooked;
   double value;
   String type;
   
-  Fish(int Size, float x, float y,int dx, int dy){//constructs a fish
+  Fish(int Size, int dx, int dy){//constructs a fish
     this.Size=Size;
     Hooked=false;
-    this.x=x;
-    this.y=y;
-    this.dx=(int)(dx*100)/100.0;
-    this.dy=(int)(dx*100)/100.0;
+    this.dx=dx;
+    this.dy=dy;
+    x = (int)(Math.random()*(width-80)+40);
     if(Size==0){
       type= "small";
       value=5;
       radius=20;
+      c = color(102,0,204);
+      y = (int)(Math.random()*250+250);
     }
     if (Size==1){
       type= "medium";
       value= 10;
       radius=40;
+      c = color(0,255,0);
+      y = (int)(Math.random()*250+475);
     }
     if (Size==2){
       type= "large";
       value=15;
       radius=80;
+      c = color(255,0,0);
+      y = (int)(Math.random()*250+(height-280));
     }
+  }
+  
+  Fish() {
+    this(
+      (int)(Math.random()*3),2,1);
   }
   
   double GetValue(){//returns the value of the fish
@@ -51,7 +62,12 @@ class Fish{
   void move(){ // movement of fish 
     if (!Hooked){
       x += dx;
-      //y += dy; for now no y so it doesnt move horizantally
+      y += dy;
+      
+      // changes x direction
+      if (Math.random() <= 0.005) {
+        dx *= -1;
+      }
       if (x >= width - radius){
         dx *= -1;
         x = width-radius;        
@@ -60,22 +76,25 @@ class Fish{
         dx *= -1;
         x = radius;
       }
+      
+      // changes y direction
+      if (Math.random() <= 0.05) {
+        dy *= -1;
+      }
+      if (y > height - radius) {
+        dy *= -1;
+        y = height-radius;
+      }
+      if (y < 250+radius) {
+        dy *= -1;
+        y = 250+radius;
+      }
     }
   }
   void drawFish(){
     noStroke();
-    if(Size==0){
-      fill(102,0,204);
-      ellipse(x, y, 20, 20);
-    }
-    if (Size==1){
-      fill(0,255,0);
-      ellipse(x, y, 40, 40);
-    }
-    if (Size==2){
-      fill(255,0,0);
-      ellipse(x, y, 80, 80);
-    }
+    fill(c);
+    ellipse(x,y,radius,radius);
   }
 
 }

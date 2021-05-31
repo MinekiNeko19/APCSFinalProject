@@ -8,10 +8,7 @@ void setup() {
   player.drawCat();
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<10;i++){
-    int size= (int)random(3);
-    float y= random(250,height);
-    float x= random(width-80)+40; // border of 40
-    swimmers.add(new Fish(size,x,y,2,2));
+    swimmers.add(new Fish());
   }
 }
 
@@ -53,8 +50,8 @@ void draw() {
     }
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 32) { // spacebar
-      println(swimmers.remove(player.sell()));
-      swimmers.add(new Fish((int)random(3),(int)random(width-80)+40,(int)random(270,height),2,2));
+      swimmers.remove(player.sell());
+      swimmers.add(new Fish());
     }
   }
   player.drawCat();
