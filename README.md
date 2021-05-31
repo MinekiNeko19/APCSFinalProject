@@ -16,3 +16,5 @@ Prototype:https://docs.google.com/document/d/1lBjIP9ZUeaBPYP2nQREMJ4cS84A-YERTrz
 5/30/21 Sarah: fixed hook catching more than one fish at a time and raised water levels
 
 5/31/21 Sarah: altered the movement of fish and added a new constructor
+
+5/31/21 Vivien: worked on bait visuals and behaviors.
