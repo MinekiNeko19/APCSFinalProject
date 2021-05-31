@@ -23,12 +23,12 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   for (Fish f : swimmers) {
-    if (f == player.rod().checkHook()) {
+    if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line
       f.moveTo(player.rod().bx(), player.rod().by());
     }
     else if (player.rod().checkHook() == null && 
-      f.hook(player.rod().bx(), player.rod().by())) {
-      f.moveTo(player.rod().bx(), player.rod().by());
+      f.hook(player.rod().bx(), player.rod().by(),player.rod())) {//fish determines whether the line is worth biting
+      //f.moveTo(player.rod().bx(), player.rod().by());
       player.caught(f);
     } else {
       f.move();
@@ -55,7 +55,8 @@ void draw() {
     }
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 16) {//shift key
-      swimmers.remove(player.makeBait());  
+      swimmers.remove(player.makeBait());
+      swimmers.add(new Fish());
     }
   }
   player.drawCat();

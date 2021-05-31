@@ -1,9 +1,10 @@
 class Fish{
-  int Size, x, y, dx, dy,radius;
-  color c;
-  Boolean Hooked;
-  double value;
-  String type;
+  private int Size, x, y, dx, dy,radius;
+  private color c;
+  private Boolean Hooked;
+  private double value;
+  private String type;
+  
   
   Fish(int Size, int dx, int dy){//constructs a fish
     this.Size=Size;
@@ -46,12 +47,25 @@ class Fish{
     return Size;
   }
   
-  boolean hook(int bx, int by) {
-    if (bx < x+radius && bx > x-radius && by < y+radius && by > y-radius) {
-      Hooked = true;
+  boolean hook(int bx, int by, Rod r) {
+    if (bx < x+radius 
+        && bx > x-radius 
+        && by < y+radius 
+        && by > y-radius) {
+      Hooked = detectBait(r);
+    }
+    if(Hooked){
       moveTo(bx,by);
     }
     return Hooked;
+  }
+  boolean detectBait(Rod r){
+    if (r.bait()>Size || r.bait()<Size-1){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
   
   void moveTo(int newX, int newY) {
