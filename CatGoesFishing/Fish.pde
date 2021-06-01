@@ -60,11 +60,11 @@ class Fish{
     return Hooked;
   }
   boolean detectBait(Rod r){
-    if (r.bait()>Size || r.bait()<Size-1){
-      return false;
+    if (r.bait() >= Size-1){
+      return true;
     }
     else{
-      return true;
+      return false;
     }
   }
   
