@@ -49,7 +49,7 @@ void draw() {
       player.dropLine();
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 200 && keyCode == 32) { // spacebar
+        player.rod().by()<= 200 && keyCode == 90) { // z key
       swimmers.remove(player.sell());
       swimmers.add(new Fish());
     }
