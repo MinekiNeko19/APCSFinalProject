@@ -37,7 +37,7 @@ class Fish{
   
   Fish() {
     this(
-      (int)(Math.random()*4)+1,2,1);
+      (int)(Math.random()*3)+1,2,1);
   }
   
   double GetValue(){//returns the value of the fish
