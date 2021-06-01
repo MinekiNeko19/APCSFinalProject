@@ -17,27 +17,27 @@ class Fish{
       value=5;
       radius=20;
       c = color(102,0,204);
-      y = (int)(Math.random()*250+250);
+      y = (int)(Math.random()*250+300);
     }
     if (Size==2){
       type= "medium";
       value= 10;
       radius=40;
       c = color(0,255,0);
-      y = (int)(Math.random()*250+475);
+      y = (int)(Math.random()*250+500);
     }
     if (Size==3){
       type= "large";
       value=15;
       radius=80;
       c = color(255,0,0);
-      y = (int)(Math.random()*250+(height-280));
+      y = (int)(Math.random()*250+700);
     }
   }
   
   Fish() {
     this(
-      (int)(Math.random()*4),2,1);
+      (int)(Math.random()*4)+1,2,1);
   }
   
   double GetValue(){//returns the value of the fish
