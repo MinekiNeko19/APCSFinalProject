@@ -3,7 +3,7 @@ class Catalogue {
   boolean visible;
   
   Catalogue() {
-    int[] caught = new int[3];
+    int[] caught = new int[]{1,2,};
     visible = false;
   }
   
@@ -28,8 +28,15 @@ class Catalogue {
   }
   
   void displayStats() {
-    stroke(100,75,50);
+    noStroke();
     fill(200,125,75);
-    rect(10,10,width-20,200);
+    rect(710,10,width-720,155);
+    fill(0);
+    textSize(20);
+    text("Catalogue",720,30);
+    //textSize(15);
+    text("Small: " + caught[0],720,45);
+    text("Medium: " + caught[1],720,65);
+    text("Large: " + caught[2],720,85);
   }
 }
