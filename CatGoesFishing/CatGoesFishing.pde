@@ -57,7 +57,9 @@ void draw() {
     }
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 90) { // z key
-      swimmers.remove(player.sell());
+      Fish temp = player.sell();
+      swimmers.remove(temp);
+      c.addStat(temp);
       swimmers.add(new Fish());
     }
     if (player.rod().checkHook() != null &&
