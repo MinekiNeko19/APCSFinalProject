@@ -28,7 +28,7 @@ class Rod {
     line(x,y,x,y+lineLen);
     noStroke();
     if (f==null&&baitSize>0) {// draws bait if isBait is true.
-      fill(255,255,0);
+      fill(255,255,0,100);
       float radius= pow(2,(baitSize))*10;
       ellipse(x,y+lineLen,radius,radius);
     }
