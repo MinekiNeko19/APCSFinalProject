@@ -1,15 +1,15 @@
 Cat player;
 ArrayList<Fish> swimmers;
+Catalogue c;
 
 void setup() {
-  background(125,200,250);
   size(1080,810);
   player = new Cat();
-  player.drawCat();
   swimmers= new ArrayList<Fish>();
   for (int i=0;i<20;i++){
     swimmers.add(new Fish());
   }
+  c = new Catalogue();
 }
 
 void draw() {
@@ -22,6 +22,10 @@ void draw() {
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);
+  if (c.visible()) {
+    c.displayStats();
+  }
+  
   for (Fish f : swimmers) {
     if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line
       f.moveTo(player.rod().bx(), player.rod().by());
@@ -48,6 +52,9 @@ void draw() {
     if (keyCode == DOWN) {
       player.dropLine();
     }
+    if (keyCode == 67) { // c key
+      c.toggle();
+    }
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 90) { // z key
       swimmers.remove(player.sell());
@@ -60,5 +67,4 @@ void draw() {
     }
   }
   player.drawCat();
-  
 }
