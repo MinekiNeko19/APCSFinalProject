@@ -3,7 +3,7 @@ class Catalogue {
   boolean visible;
   
   Catalogue() {
-    caught = new int[3];
+    caught = new int[4];
     visible = false;
   }
   
@@ -38,5 +38,6 @@ class Catalogue {
     text("Small: " + caught[0],720,50);
     text("Medium: " + caught[1],720,70);
     text("Large: " + caught[2],720,90);
+    text("Total: " + (caught[0] + caught[1] + caught[2]),720,110);
   }
 }

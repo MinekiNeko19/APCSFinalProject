@@ -40,9 +40,9 @@ class Fish{
       topLimit = 600;
       bottomLimit = height-radius;
     }
-    if (Math.random()<0.25) {
+    if (Math.random()<0.01) {
       type = "Special " + type;
-      value += 100;
+      value += 50;
       c = color(red(c),green(c),blue(c),150);
     }
   }
@@ -94,7 +94,7 @@ class Fish{
       if (type.contains("Special") && Math.random() < 0.00005) { // special fish can become normal
         type = type.substring(8);
         c = color(red(c),green(c),blue(c));
-        value -= 100;
+        value -= 50;
       }
       
       
