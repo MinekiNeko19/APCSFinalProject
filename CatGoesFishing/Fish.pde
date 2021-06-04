@@ -40,9 +40,10 @@ class Fish{
       topLimit = 600;
       bottomLimit = height-radius;
     }
-    if (Math.random()<0.5) {
+    if (Math.random()<0.25) {
       type = "Special " + type;
-      value = 100;
+      value += 100;
+      c = color(red(c),green(c),blue(c),150);
     }
   }
   
@@ -86,6 +87,17 @@ class Fish{
   
   void move(){ // movement of fish 
     if (!Hooked){
+      
+      if (type.contains("Special") && Math.random() < 0.05) { // speedier special fish
+        x += 10*dx;
+      }
+      if (type.contains("Special") && Math.random() < 0.00005) { // special fish can become normal
+        type = type.substring(8);
+        c = color(red(c),green(c),blue(c));
+        value -= 100;
+      }
+      
+      
       x += dx;
       y += dy;
       
@@ -119,11 +131,6 @@ class Fish{
   void drawFish(){
     noStroke();
     fill(c);
-    if (type.contains("Special") && Math.random() < 0.5 && !Hooked) {
-      c = color(red(c),green(c),blue(c),50);
-    } else {
-      c = color(red(c),green(c),blue(c));
-    }
     ellipse(x,y,radius,radius);
   }
 
