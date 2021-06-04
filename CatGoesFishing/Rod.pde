@@ -18,7 +18,9 @@ class Rod {
     if (lineLen < 0) {
       lineLen = 0;
     }
-    if (lineLen > height) lineLen -= l;
+    if (lineLen >= height-200) {
+      lineLen = height-200;
+    }
     
     x = xcor; y = ycor;
   }

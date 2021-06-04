@@ -35,8 +35,8 @@ class Catalogue {
     textSize(20);
     text("Catalogue",720,30);
     textSize(15);
-    text("Small: " + caught[0],720,45);
-    text("Medium: " + caught[1],720,65);
-    text("Large: " + caught[2],720,85);
+    text("Small: " + caught[0],720,50);
+    text("Medium: " + caught[1],720,70);
+    text("Large: " + caught[2],720,90);
   }
 }
