@@ -40,6 +40,10 @@ class Fish{
       topLimit = 600;
       bottomLimit = height-radius;
     }
+    if (Math.random()<0.5) {
+      type = "Special " + type;
+      value = 100;
+    }
   }
   
   Fish() {
@@ -115,6 +119,11 @@ class Fish{
   void drawFish(){
     noStroke();
     fill(c);
+    if (type.contains("Special") && Math.random() < 0.5 && !Hooked) {
+      c = color(red(c),green(c),blue(c),50);
+    } else {
+      c = color(red(c),green(c),blue(c));
+    }
     ellipse(x,y,radius,radius);
   }
 
