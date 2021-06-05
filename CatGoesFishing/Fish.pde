@@ -4,6 +4,7 @@ class Fish{
   private Boolean Hooked;
   private double value;
   private String type;
+  private int topLimit, bottomLimit;
   
   
   Fish(int Size, int dx, int dy){//constructs a fish
@@ -17,21 +18,32 @@ class Fish{
       value=5;
       radius=20;
       c = color(102,0,204);
-      y = (int)(Math.random()*250+300);
+      y = (int)(Math.random()*250+250);
+      topLimit = 250;
+      bottomLimit = 450;
     }
     if (Size==2){
       type= "medium";
       value= 10;
       radius=40;
       c = color(0,255,0);
-      y = (int)(Math.random()*250+500);
+      y = (int)(Math.random()*250+400);
+      topLimit = 400;
+      bottomLimit = 650;
     }
     if (Size==3){
       type= "large";
       value=15;
       radius=80;
       c = color(255,0,0);
-      y = (int)(Math.random()*250+700);
+      y = (int)(Math.random()*250+600);
+      topLimit = 600;
+      bottomLimit = height-radius;
+    }
+    if (Math.random()<0.01) {
+      type = "Special " + type;
+      value += 50;
+      c = color(red(c),green(c),blue(c),150);
     }
   }
   
@@ -75,6 +87,17 @@ class Fish{
   
   void move(){ // movement of fish 
     if (!Hooked){
+      
+      if (type.contains("Special") && Math.random() < 0.05) { // speedier special fish
+        x += 10*dx;
+      }
+      if (type.contains("Special") && Math.random() < 0.00005) { // special fish can become normal
+        type = type.substring(8);
+        c = color(red(c),green(c),blue(c));
+        value -= 50;
+      }
+      
+      
       x += dx;
       y += dy;
       
@@ -95,13 +118,13 @@ class Fish{
       if (Math.random() <= 0.05) {
         dy *= -1;
       }
-      if (y > height - radius) {
+      if (y > bottomLimit) {
         dy *= -1;
-        y = height-radius;
+        y = bottomLimit-1;
       }
-      if (y < 250+radius) {
+      if (y < topLimit) {
         dy *= -1;
-        y = 250+radius;
+        y = topLimit+1;
       }
     }
   }
