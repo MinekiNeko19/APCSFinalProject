@@ -7,6 +7,7 @@ void setup() {
   player = new Cat();
   player.drawCat();
   swimmers= new ArrayList<Fish>();
+  swimmers.add (new Fish(1,2,1));
   for (int i=0;i<10;i++){
     swimmers.add(new Fish());
   }
