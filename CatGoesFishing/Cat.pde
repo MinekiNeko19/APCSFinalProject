@@ -22,7 +22,15 @@ class Cat {
     
     //cat
     fill(255);
-    rect(x-w/2,y-h,w,h);
+    //body of the cat
+    rect(x-w/2,y-h,w,h); 
+    //ears of the cat
+    triangle(x-w/2,y-h,(x-w/2)+w/3,y-h,(x-w/2)+w/6,y-h-20);
+    triangle((x-w/2)+w,y-h,(x-w/2)+w-w/3,y-h,(x-w/2)+w-w/6,y-h-20);
+    //eyes
+    fill(000);
+    ellipse();
+    ellipse();
     
     //boat
     fill(100,25,10);
