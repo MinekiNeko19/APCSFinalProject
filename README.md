@@ -24,3 +24,5 @@ Prototype:https://docs.google.com/document/d/1lBjIP9ZUeaBPYP2nQREMJ4cS84A-YERTrz
 6/4/21 Sarah: added special fish
 
 6/4/21 Vivien: changed the way spawning works so that small fish will always spawn
+
+6/6/21 Vivien: cleaned up graphics of the game.
