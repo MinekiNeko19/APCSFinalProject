@@ -1,18 +1,21 @@
 Cat player;
 ArrayList<Fish> swimmers;
 Catalogue c;
+Shop s;
+int boatSpeed;
 
 void setup() {
   size(1080,810);
   player = new Cat();
   swimmers= new ArrayList<Fish>();
-
+  boatSpeed = 10;
   swimmers.add (new Fish(1,2,1));
   for (int i=0;i<20;i++){
 
     swimmers.add(new Fish());
   }
   c = new Catalogue();
+  //s = new Shop();
 }
 
 void draw() {
@@ -25,9 +28,14 @@ void draw() {
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);
+  text("Boat Speed: " + boatSpeed,0,40);
+  text("Rod Speed: " + player.rodSpeed(),0,60);
   if (c.visible()) {
     c.displayStats();
   }
+  //if (s.visible()) {
+  //  s.openShop();
+  //}
   
   for (Fish f : swimmers) {
     if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line
@@ -44,10 +52,10 @@ void draw() {
   }
   if (keyPressed) {
     if (keyCode == LEFT) {
-      player.moveLeft(10);
+      player.moveLeft(boatSpeed);
     }
     if (keyCode == RIGHT) {
-      player.moveRight(10);
+      player.moveRight(boatSpeed);
     }
     if (keyCode == UP) {
       player.reelLine();
@@ -58,6 +66,10 @@ void draw() {
     if (keyCode == 67) { // c key
       c.toggle();
     }
+    //if (keyCode == 83) { // s key
+    //  if (c.visible()) c.toggle();
+    //  s.toggle();
+    //}
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 90) { // z key
       Fish temp = player.sell();
