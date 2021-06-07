@@ -1,6 +1,8 @@
 class Cat {
   private int currency;
-  private color c;
+  private color cat;
+  private color boat;
+  private int rodSpeed;
   private int x;
   private int y;
   private int w;
@@ -9,7 +11,9 @@ class Cat {
     
   Cat() {
     currency = 0;
-    c = color(250,250,200);
+    cat = color(255);
+    boat = color(100,25,10);
+    rodSpeed = 2;
     x = 540;
     y = 185;
     w = 50;
@@ -21,11 +25,11 @@ class Cat {
     noStroke();
     
     //cat
-    fill(255);
+    fill(cat);
     rect(x-w/2,y-h,w,h);
     
     //boat
-    fill(100,25,10);
+    fill(boat);
     rect(x-2*w,y-25,4*w,25);
     
     // rod
@@ -49,11 +53,11 @@ class Cat {
   }
   
   void dropLine() {
-    r.adjust(2,x,y);
+    r.adjust(rodSpeed,x,y);
   }
   
   void reelLine() {
-    r.adjust(-2,x,y);
+    r.adjust(-rodSpeed,x,y);
   }
   
   void caught(Fish f) {
@@ -74,5 +78,8 @@ class Cat {
   }
   int points() {
     return currency;
+  }
+  int rodSpeed() {
+    return rodSpeed;
   }
 }

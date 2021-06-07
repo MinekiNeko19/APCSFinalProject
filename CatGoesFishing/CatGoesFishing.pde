@@ -1,12 +1,13 @@
 Cat player;
 ArrayList<Fish> swimmers;
 Catalogue c;
+int boatSpeed;
 
 void setup() {
   size(1080,810);
   player = new Cat();
   swimmers= new ArrayList<Fish>();
-
+  boatSpeed = 10;
   swimmers.add (new Fish(1,2,1));
   for (int i=0;i<20;i++){
 
@@ -25,6 +26,8 @@ void draw() {
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);
+  text("Boat Speed: " + boatSpeed,0,40);
+  text("Rod Speed: " + player.rodSpeed(),0,60);
   if (c.visible()) {
     c.displayStats();
   }
@@ -44,10 +47,10 @@ void draw() {
   }
   if (keyPressed) {
     if (keyCode == LEFT) {
-      player.moveLeft(10);
+      player.moveLeft(boatSpeed);
     }
     if (keyCode == RIGHT) {
-      player.moveRight(10);
+      player.moveRight(boatSpeed);
     }
     if (keyCode == UP) {
       player.reelLine();
