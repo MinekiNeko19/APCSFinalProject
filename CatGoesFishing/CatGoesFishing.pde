@@ -1,6 +1,7 @@
 Cat player;
 ArrayList<Fish> swimmers;
 Catalogue c;
+Shop s;
 int boatSpeed;
 
 void setup() {
@@ -14,6 +15,7 @@ void setup() {
     swimmers.add(new Fish());
   }
   c = new Catalogue();
+  //s = new Shop();
 }
 
 void draw() {
@@ -31,6 +33,9 @@ void draw() {
   if (c.visible()) {
     c.displayStats();
   }
+  //if (s.visible()) {
+  //  s.openShop();
+  //}
   
   for (Fish f : swimmers) {
     if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line
@@ -61,6 +66,10 @@ void draw() {
     if (keyCode == 67) { // c key
       c.toggle();
     }
+    //if (keyCode == 83) { // s key
+    //  if (c.visible()) c.toggle();
+    //  s.toggle();
+    //}
     if (player.rod().checkHook() != null &&
         player.rod().by()<= 200 && keyCode == 90) { // z key
       Fish temp = player.sell();
