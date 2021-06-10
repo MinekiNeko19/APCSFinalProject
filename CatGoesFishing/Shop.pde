@@ -3,6 +3,7 @@ class Shop {
   boolean visible;
   
   Shop() {
+    list = new ArrayList<ShopItem>();
     list.add(new ShopItem("Black Boat",100,color(0),0));
     list.add(new ShopItem("Faster Boat Speed!",100,color(0),5));
     list.add(new ShopItem("Faster Rod Speed!",100,color(0),5));
@@ -20,7 +21,15 @@ class Shop {
     int space = 50;
     for (int i = 0; i < list.size(); i++) {
       ShopItem temp = list.get(i);
-      text(temp.name+ " Price: " + temp.price,100,space+(i*20));
+      String t = temp.name+ " Price: " + temp.price;
+      if (mouseX > 720 && mouseX < 790 &&
+        mouseY > space+(i*20)-15 && mouseY < space+(i*20)) {
+        fill(0,0,255);
+        t += " Not Purchased";
+      }
+      else if (temp.purchased) fill(255,0,0);
+      else fill(0);
+      text(t,720,space+(i*20));
     }
   }
   
