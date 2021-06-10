@@ -4,7 +4,7 @@ class Catalogue {
   
   Catalogue() {
     caught = new int[6];
-    visible = true;
+    visible = false;
   }
   
   void addStat(Fish f) {
