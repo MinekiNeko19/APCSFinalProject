@@ -3,19 +3,22 @@ class Catalogue {
   boolean visible;
   
   Catalogue() {
-    caught = new int[4];
+    caught = new int[6];
     visible = true;
   }
   
   void addStat(Fish f) {
     if (f.getSize() == 1) {
       caught[0] +=1;
+      if (f.special()) caught[3]++;
     }
     if (f.getSize() == 2) {
       caught[1] +=1;
+      if (f.special()) caught[4]++;
     }
     if (f.getSize() == 3) {
       caught[2] +=1;
+      if (f.special()) caught[5]++;
     }
   }
   
@@ -38,6 +41,9 @@ class Catalogue {
     text("Small: " + caught[0],720,50);
     text("Medium: " + caught[1],720,70);
     text("Large: " + caught[2],720,90);
+    text("Specials: " + caught[3],900,50);
+    text("Specials: " + caught[4],900,70);
+    text("Specials: " + caught[5],900,90);
     text("Total: " + (caught[0] + caught[1] + caught[2]),720,110);
   }
 }

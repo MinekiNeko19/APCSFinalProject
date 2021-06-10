@@ -64,7 +64,12 @@ private class ShopItem {
        purchased = false;
        maxUpgrade--;
     }
-  }  
+  }
+  
+  void buy() {
+    purchased = true;
+  }
+    
   
   //void upgradeProduct() { // default upgrade for speed?
   //  int tempCost = price+25;

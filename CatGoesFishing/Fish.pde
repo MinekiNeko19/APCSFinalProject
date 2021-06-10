@@ -58,6 +58,9 @@ class Fish{
   float getSize() {
     return Size;
   }
+  boolean special() {
+    return type.contains("Special");
+  }
   
   boolean hook(int bx, int by, Rod r) {
     if (bx < x+radius 

@@ -82,7 +82,7 @@ void draw() {
         player.rod().by()<= 200 && keyCode == 16) {//shift key
       swimmers.remove(player.makeBait());
       swimmers.add(new Fish());
-    }
+    } 
   }
   player.drawCat();
 }
