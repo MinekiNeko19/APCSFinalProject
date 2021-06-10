@@ -43,20 +43,15 @@ void draw() {
     c.displayStats();
   }
   if (s.visible()) {
-    ShopItem item = s.openShop();
-    //if (mousePressed && player.points() > 0) {
-    //  if (item.name.contains("Boat Speed")) {
-    //    boatSpeed += 2;
-    //    item.buy();
-    //  }
-    //  if (item.name.contains("Rod Speed")) {
-    //    player.upgradeRod();
-    //    item.buy();
-    //  }
-    //  if (item.name.contains("paint")) {
-    //    player.changeBoat(color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255)));
-    //  }
-    //}
+    String item = s.openShop();
+    if (mousePressed) {
+      if (item.contains("Boat Speed")) {
+        boatSpeed += 2;
+      }
+      if (item.contains("Rod Speed")) {
+        player.upgradeRod();
+      }
+    }
   }
   
   for (Fish f : swimmers) {
