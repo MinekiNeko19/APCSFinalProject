@@ -26,7 +26,7 @@ class Cat {
     
     //cat
 
-    fill(255);
+    fill(cat);
     //body of the cat
     rect(x-w/2,y-h,w,h); 
     //ears of the cat
@@ -82,7 +82,12 @@ class Cat {
   Fish makeBait(){
     return r.release(1);
   }
-  // returns the stats of the cat 
+  
+  void changeBoat(color c) {
+    boat = c;
+  }
+  
+  // returns the stats of the cat
   // rod stats
   Rod rod() {
     return r;
@@ -92,5 +97,8 @@ class Cat {
   }
   int rodSpeed() {
     return rodSpeed;
+  }
+  void upgradeRod() {
+    rodSpeed +=2;
   }
 }

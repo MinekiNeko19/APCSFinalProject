@@ -35,7 +35,7 @@ void draw() {
   if (instructions) {
     text("C: Toggle Catalogue",0,80);
     text("S: Toggle Shop",0,100);
-    text("Z: Toggle Shop",0,120);
+    text("Z: Sell Fish",0,120);
     text("Shift: Turn Fish into Bait",0,140);
     text("I: Toggle Help",0,160);
   }
@@ -43,7 +43,12 @@ void draw() {
     c.displayStats();
   }
   if (s.visible()) {
-    s.openShop();
+    String item = s.openShop();
+    if (mousePressed) {
+      if (item.contains("Boat Speed")) {
+        boatSpeed += 2;
+      }
+    }
   }
   
   for (Fish f : swimmers) {
@@ -94,7 +99,7 @@ void draw() {
         player.rod().by()<= 200 && keyCode == 16) {//shift key
       swimmers.remove(player.makeBait());
       swimmers.add(new Fish());
-    }
+    }    
   }
   player.drawCat();
 }
