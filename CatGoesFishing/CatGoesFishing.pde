@@ -43,10 +43,11 @@ void draw() {
     c.displayStats();
   }
   if (s.visible()) {
-    s.openShop();
+    s.openShop(); 
     s.mousePressed();
-    
   }
+  
+   s.drawHats();
   
   for (Fish f : swimmers) {
     if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line

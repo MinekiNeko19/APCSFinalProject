@@ -7,12 +7,13 @@ class Shop{
     list.add(new ShopItem("Top Hat",1));
     list.add(new ShopItem("Straw Hat",1));
     list.add(new ShopItem("Bow",1));
-    visible = true;
+    visible = false;
   }
   
   void openShop() {
     
     noStroke();
+    
     fill(200,200,200);
     rect(710,10,width-720,155);
     fill(0);
@@ -45,11 +46,16 @@ class Shop{
       else fill(0);
       text(temp.name+ " Price: " + temp.price,720,space+(i*20));
       
-      temp.drawHat();
+     
     }
     
   }
-  
+  void drawHats(){
+    for (int i=0;i<list.size();i++){
+      ShopItem temp = list.get(i);
+       temp.drawHat();
+    }
+  }
   void mousePressed() {
    //Right click:Buy.
    //Left click: Equip. 
@@ -121,7 +127,7 @@ private class ShopItem {
   }
   void drawHat(){
     noStroke();
-    int startX=(x-w/2)+w/3;
+    int startX=(player.getX()-w/2)+w/3;
     int startY=y-h;
     if (purchased && equipped){
       if(name.equals("Top Hat")){
