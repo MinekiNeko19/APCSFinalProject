@@ -7,7 +7,7 @@ class Fish{
   private int topLimit, bottomLimit;
   
   
-  Fish(int Size, int dx, int dy){//constructs a fish
+  Fish(int Size, int dx, int dy){ //constructs a fish
     this.Size=Size;
     Hooked=false;
     this.dx=dx;
@@ -52,6 +52,7 @@ class Fish{
       (int)(Math.random()*3)+1,2,1);
   }
   
+  // return values of the private variables
   double GetValue(){//returns the value of the fish
     return value;
   }
@@ -62,6 +63,8 @@ class Fish{
     return type.contains("Special");
   }
   
+  // behavior methods
+  // hooking
   boolean hook(int bx, int by, Rod r) {
     if (bx < x+radius 
         && bx > x-radius 
@@ -69,11 +72,9 @@ class Fish{
         && by > y-radius) {
       Hooked = detectBait(r);
     }
-    if(Hooked){
-      moveTo(bx,by);
-    }
     return Hooked;
   }
+  
   boolean detectBait(Rod r){
     if (r.bait() >= Size-1){
       return true;
@@ -83,12 +84,13 @@ class Fish{
     }
   }
   
+  // moving
   void moveTo(int newX, int newY) {
     x = newX;
     y = newY;
   }
   
-  void move(){ // movement of fish 
+  void move(){
     if (!Hooked){
       
       if (type.contains("Special") && Math.random() < 0.05) { // speedier special fish
@@ -131,10 +133,10 @@ class Fish{
       }
     }
   }
+  
   void drawFish(){
     noStroke();
     fill(c);
     ellipse(x,y,radius,radius);
   }
-
 }

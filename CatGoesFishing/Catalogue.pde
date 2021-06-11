@@ -1,14 +1,10 @@
 class Catalogue {
   private int[] caught;
   boolean visible;
-
-  
   
   Catalogue() {
     caught = new int[6];
     visible = false;
-  
- 
   }
   
   void addStat(Fish f) {
@@ -26,12 +22,9 @@ class Catalogue {
     }
   }
 
-  
   void toggle() {
     visible = !visible;
-  }
-  
-  
+  } 
   
   void displayStats() {
     noStroke();
@@ -39,7 +32,7 @@ class Catalogue {
     rect(710,10,width-720,155);
     fill(0);
     textSize(20);
-    text("Cat-a-logue",720,30);
+    text("Catalogue",720,30);
     textSize(15);
     text("Small: " + caught[0],720,50);
     text("Medium: " + caught[1],720,70);
@@ -47,7 +40,6 @@ class Catalogue {
     text("Specials: " + caught[3],900,50);
     text("Specials: " + caught[4],900,70);
     text("Specials: " + caught[5],900,90);
-    text("Total: " + (caught[0] + caught[1] + caught[2]),720,110);
-    
+    text("Total: " + (caught[0] + caught[1] + caught[2]),720,110);    
   }
 }

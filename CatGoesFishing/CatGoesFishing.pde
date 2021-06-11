@@ -11,7 +11,6 @@ void setup() {
   
   swimmers.add (new Fish(1,2,1));
   for (int i=0;i<20;i++){
-
     swimmers.add(new Fish());
   }
   c = new Catalogue();
@@ -30,12 +29,14 @@ void draw() {
   fill(0);
   text("Points: " + player.points(),0,20);
   if (instructions) {
-    text("C: Toggle Catalogue",0,80);
-    text("S: Toggle Shop",0,100);
-    text("Shift: Sell Fish",0,120);
-    text("Down Arrow: Turn Fish into Bait",0,140);
-    text("I: Toggle Help",0,160);
+    text("C: Toggle Catalogue",0,40);
+    text("S: Toggle Shop",0,60);
+    text("Shift: Sell Fish",0,80);
+    text("Down Arrow: Turn Hooked Fish into Bait",0,100);
+    text("I: Toggle Help",0,120);
   }
+  
+  // displaying catalogue and shop
   if (c.visible) {
     c.displayStats();
   }
@@ -43,22 +44,23 @@ void draw() {
     s.openShop(); 
     s.mousePressed();
   }
+  s.drawHats();
   
-   s.drawHats();
-  
+  // fish swimming behaviors
   for (Fish f : swimmers) {
-    if (f == player.rod().checkHook()) {// if fish is on line it'll move with the line
+    if (f == player.rod().checkHook()) { // if fish is on line it'll move with the line
       f.moveTo(player.rod().bx(), player.rod().by());
     }
     else if (player.rod().checkHook() == null && 
-      f.hook(player.rod().bx(), player.rod().by(),player.rod())) {//fish determines whether the line is worth biting
-      //f.moveTo(player.rod().bx(), player.rod().by());
+      f.hook(player.rod().bx(), player.rod().by(),player.rod())) { //fish determines whether the line is worth biting
       player.caught(f);
     } else {
       f.move();
     }
     f.drawFish();
   }
+  
+  // buttons
   if (keyPressed) {
     if (keyCode == LEFT) {
       player.moveLeft(10);

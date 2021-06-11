@@ -25,19 +25,17 @@ class Cat {
     noStroke();
     
     //cat
-
     fill(cat);
     //body of the cat
     rect(x-w/2,y-h,w,h); 
     //ears of the cat
     triangle(x-w/2,y-h,(x-w/2)+w/3,y-h,(x-w/2)+w/6,y-h-20);
     triangle((x-w/2)+w,y-h,(x-w/2)+w-w/3,y-h,(x-w/2)+w-w/6,y-h-20);
+    
     //eyes
     //fill(000);
     //ellipse();
     //ellipse();
-
-
     
     //boat
     fill(boat);
@@ -49,7 +47,7 @@ class Cat {
     
   void moveLeft(int step) {
     x = x-step;
-    if (x< w/2) { // boundaries will change when background and camera work are implemented
+    if (x< w/2) {
       x = w/2;
     }
     r.adjust(0,x,y);
@@ -57,7 +55,7 @@ class Cat {
   
   void moveRight(int step) {
       x = x+step;
-      if (x>width-w/2) { // boundaries will change when background and camera work are implemented
+      if (x>width-w/2) {
         x = width-w/2;
       }
       r.adjust(0,x,y);

@@ -1,12 +1,10 @@
 class Rod {
-  private int speed;
   private int baitSize;
   private int x,y;
   private int lineLen;
   private Fish f;
  
   Rod(int xcor, int ycor) {
-    speed = 10;
     baitSize = 0;
     x = xcor;
     y = ycor;
@@ -41,6 +39,7 @@ class Rod {
     f = fish;
     baitSize = (int)f.getSize();
   }
+  
   Fish release(int purpose) {
     Fish temp = f;
     if (purpose==0){
@@ -50,6 +49,7 @@ class Rod {
     return temp;
   }
   
+  // return 
   int bait() {
     return baitSize;
   }
