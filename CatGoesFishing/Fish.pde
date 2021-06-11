@@ -102,7 +102,6 @@ class Fish{
         value -= 50;
       }
       
-      
       x += dx;
       y += dy;
       

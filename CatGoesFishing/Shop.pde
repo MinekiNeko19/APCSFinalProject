@@ -1,6 +1,7 @@
 class Shop{
   private ArrayList<ShopItem> list;
   boolean visible;
+  ShopItem wearing;
   
  Shop() {
     list = new ArrayList<ShopItem>();
@@ -11,14 +12,15 @@ class Shop{
   }
   
   void openShop() {
-    
+    // box and shop 
     noStroke();
-    
     fill(200,200,200);
     rect(710,10,width-720,155);
     fill(0);
     textSize(20);
     text("Buy Hats!",720,30);
+    
+    // items listing
     textSize(15);
     int space = 50;
     for (int i = 0; i < list.size(); i++) {
@@ -32,56 +34,51 @@ class Shop{
         else{
            text(" Not Purchased",950,space+(i*20));
         }
-       
-       
       }
+    
+      // text color
       if (temp.purchased) {
         fill(255,0,0);
-        
-       if (temp.equipped){
-         fill(0,255,0);
-         
-       }
+        if (temp.equipped){
+          fill(0,255,0); 
+        }
       }
       else fill(0);
       text(temp.name+ " Price: " + temp.price,720,space+(i*20));
-      
-     
     }
-    
   }
+  
   void drawHats(){
     for (int i=0;i<list.size();i++){
       ShopItem temp = list.get(i);
        temp.drawHat();
     }
   }
+  
   void mousePressed() {
    //Right click:Buy.
    //Left click: Equip. 
-  
    if(mouseButton == RIGHT){
      Buy();
    }
-   if(mouseButton ==LEFT){
+   if(mouseButton == LEFT){
      Equip();
    }
  }
+ 
  void Buy(){
   for (int i = 0; i < list.size(); i++) {
       ShopItem temp = list.get(i);
-      
       if (!temp.purchased && mouseX > 720 && mouseX < 1040 &&
           mouseY > 50+(i*20)-15 && mouseY < 50+(i*20)) {
             if(player.points()>=temp.price()){
               temp.bought();
               player.changepoints(-temp.price());
             }
-            
-        println(mouseX);
       }
-  }
+   }
  }
+ 
  void Equip(){
    for (int i = 0; i < list.size(); i++) {
       ShopItem temp = list.get(i);
@@ -92,9 +89,8 @@ class Shop{
                 t.unequip();
             }
         temp.puton();
-        println(mouseX);
       }
-  }
+   }
  }
   boolean visible() {
     return visible;
@@ -173,10 +169,10 @@ private class ShopItem {
       }
     
   }
+  
   int price(){
     return price;
   }
-
   void bought(){
     purchased =true;
   }
