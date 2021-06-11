@@ -2,14 +2,13 @@ Cat player;
 ArrayList<Fish> swimmers;
 Catalogue c;
 Shop s;
-int boatSpeed;
 boolean instructions;
 
 void setup() {
   size(1080,810);
   player = new Cat();
   swimmers= new ArrayList<Fish>();
-  boatSpeed = 10;
+  
   swimmers.add (new Fish(1,2,1));
   for (int i=0;i<20;i++){
 
@@ -30,13 +29,11 @@ void draw() {
   textSize(20);
   fill(0);
   text("Points: " + player.points(),0,20);
-  text("Boat Speed: " + boatSpeed,0,40);
-  text("Rod Speed: " + player.rodSpeed(),0,60);
   if (instructions) {
     text("C: Toggle Catalogue",0,80);
     text("S: Toggle Shop",0,100);
-    text("Z: Sell Fish",0,120);
-    text("Shift: Turn Fish into Bait",0,140);
+    text("Shift: Sell Fish",0,120);
+    text("Down Arrow: Turn Fish into Bait",0,140);
     text("I: Toggle Help",0,160);
   }
   if (c.visible) {
@@ -64,11 +61,11 @@ void draw() {
   }
   if (keyPressed) {
     if (keyCode == LEFT) {
-      player.moveLeft(boatSpeed);
+      player.moveLeft(10);
       
     }
     if (keyCode == RIGHT) {
-      player.moveRight(boatSpeed);
+      player.moveRight(10);
      
     }
     if (keyCode == UP) {
@@ -77,15 +74,15 @@ void draw() {
     if (keyCode == DOWN) {
       player.dropLine();
     }
-    if (keyCode == 67) { // c key
+    if (keyCode == 'c') { // c key
       if (s.visible()) s.toggle();
       c.toggle();
     }
-    if (keyCode == 83) { // s key
+    if (keyCode == 's') { // s key
       if (c.visible) c.toggle();
       s.toggle();
     }
-    if (keyCode == 73) { // i key
+    if (keyCode == 'i') { // i key
       instructions = !instructions;
     }
     if (player.rod().checkHook() != null &&
