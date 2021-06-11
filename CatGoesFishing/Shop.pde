@@ -6,12 +6,12 @@ class Shop{
     list = new ArrayList<ShopItem>();
     list.add(new ShopItem("Top Hat",1));
     list.add(new ShopItem("Straw Hat",1));
-    list.add(new ShopItem("Bowtie",1));
+    list.add(new ShopItem("Bow",1));
     visible = true;
   }
   
-  String openShop() {
-    String item = "";
+  void openShop() {
+    
     noStroke();
     fill(200,200,200);
     rect(710,10,width-720,155);
@@ -32,14 +32,14 @@ class Shop{
            text(" Not Purchased",950,space+(i*20));
         }
        
-        item = temp.name;
+       
       }
       if (temp.purchased) {
         fill(255,0,0);
-        item = "";
+        
        if (temp.equipped){
          fill(0,255,0);
-         item="";
+         
        }
       }
       else fill(0);
@@ -48,7 +48,6 @@ class Shop{
       temp.drawHat();
     }
     
-    return item;
   }
   
   void mousePressed() {
@@ -127,7 +126,20 @@ private class ShopItem {
     if (purchased && equipped){
       if(name.equals("Top Hat")){
         fill(0);
-        rect(startX,startY-10,w/3,20);
+        rect(startX,startY-30,w/3,30);
+        fill(255,0,0);
+        rect(startX,startY-10,w/3,5);
+      }
+      if(name.equals("Straw Hat")){
+        fill(228,214,0);
+        rect(startX,startY-20,w/3,20);
+        fill(255,0,0);
+        rect(startX,startY-10,w/3,5);
+      }
+      if(name.equals("Bow")){
+        fill(255,0,0);
+        triangle(startX,startY-10,startX,startY,startX+w/6,startY);
+        triangle(startX+w/3,startY-10,startX+w/3,startY,startX+w/3-w/6,startY);
       }
     }
     if (keyPressed) {

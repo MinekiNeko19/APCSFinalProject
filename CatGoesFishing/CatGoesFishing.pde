@@ -43,7 +43,7 @@ void draw() {
     c.displayStats();
   }
   if (s.visible()) {
-    String item = s.openShop();
+    s.openShop();
     s.mousePressed();
     
   }
