@@ -82,10 +82,7 @@ class Cat {
   Fish makeBait(){
     return r.release(1);
   }
-  
-  void changeBoat(color c) {
-    boat = c;
-  }
+ 
   
   // returns the stats of the cat
   // rod stats
@@ -95,10 +92,29 @@ class Cat {
   int points() {
     return currency;
   }
+  int changepoints(int c){
+    return currency+=c;
+  }
   int rodSpeed() {
     return rodSpeed;
   }
   void upgradeRod() {
     rodSpeed +=2;
+  }
+  
+  int getX(){
+    return x;
+  }
+  
+  int getY(){
+    return y;
+  }
+  
+  int getHeight(){
+    return h;
+  }
+  
+  int getWidth(){
+    return w;
   }
 }

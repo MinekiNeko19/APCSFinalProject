@@ -39,19 +39,13 @@ void draw() {
     text("Shift: Turn Fish into Bait",0,140);
     text("I: Toggle Help",0,160);
   }
-  if (c.visible()) {
+  if (c.visible) {
     c.displayStats();
   }
   if (s.visible()) {
     String item = s.openShop();
-    if (mousePressed) {
-      if (item.contains("Boat Speed")) {
-        boatSpeed += 2;
-      }
-      if (item.contains("Rod Speed")) {
-        player.upgradeRod();
-      }
-    }
+    s.mousePressed();
+    
   }
   
   for (Fish f : swimmers) {
@@ -85,21 +79,21 @@ void draw() {
       c.toggle();
     }
     if (keyCode == 83) { // s key
-      if (c.visible()) c.toggle();
+      if (c.visible) c.toggle();
       s.toggle();
     }
     if (keyCode == 73) { // i key
       instructions = !instructions;
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 200 && keyCode == 90) { // z key
+        player.rod().by()<= 200 && keyCode == 16) { // z key
       Fish temp = player.sell();
       swimmers.remove(temp);
       c.addStat(temp);
       swimmers.add(new Fish());
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 200 && keyCode == 16) {//shift key
+        player.rod().by()<= 200 && keyCode == DOWN) {//shift key
       swimmers.remove(player.makeBait());
       swimmers.add(new Fish());
     }    
