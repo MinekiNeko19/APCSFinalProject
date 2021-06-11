@@ -74,15 +74,15 @@ void draw() {
     if (keyCode == DOWN) {
       player.dropLine();
     }
-    if (keyCode == 'c') { // c key
+    if (key == 'c') { // c key
       if (s.visible()) s.toggle();
       c.toggle();
     }
-    if (keyCode == 's') { // s key
+    if (key == 's') { // s key
       if (c.visible) c.toggle();
       s.toggle();
     }
-    if (keyCode == 'i') { // i key
+    if (key == 'i') { // i key
       instructions = !instructions;
     }
     if (player.rod().checkHook() != null &&

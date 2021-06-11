@@ -4,9 +4,9 @@ class Shop{
   
  Shop() {
     list = new ArrayList<ShopItem>();
-    list.add(new ShopItem("Top Hat",1));
-    list.add(new ShopItem("Straw Hat",1));
-    list.add(new ShopItem("Bow",1));
+    list.add(new ShopItem("Top Hat",100));
+    list.add(new ShopItem("Straw Hat",100));
+    list.add(new ShopItem("Bow",100));
     visible = false;
   }
   
