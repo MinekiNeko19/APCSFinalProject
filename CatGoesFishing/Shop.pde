@@ -5,8 +5,8 @@ class Shop{
  Shop() {
     list = new ArrayList<ShopItem>();
     list.add(new ShopItem("Top Hat",1));
-    list.add(new ShopItem("Straw Hat",100));
-    list.add(new ShopItem("Bowtie",100));
+    list.add(new ShopItem("Straw Hat",1));
+    list.add(new ShopItem("Bowtie",1));
     visible = true;
   }
   
@@ -38,6 +38,8 @@ class Shop{
         fill(255,0,0);
         item = "";
        if (temp.equipped){
+         fill(0,255,0);
+         item="";
        }
       }
       else fill(0);
@@ -80,6 +82,10 @@ class Shop{
       ShopItem temp = list.get(i);
       if (!temp.equipped && mouseX > 720 && mouseX < 1040 &&
           mouseY > 50+(i*20)-15 && mouseY < 50+(i*20)) {
+            for (int j = 0; j < list.size(); j++) {
+              ShopItem t= list.get(j);
+                t.unequip();
+            }
         temp.puton();
         println(mouseX);
       }
@@ -130,6 +136,9 @@ private class ShopItem {
   }
   void puton(){
     equipped =true;
+  }
+  void unequip(){
+    equipped =false;
   }
   
 }
