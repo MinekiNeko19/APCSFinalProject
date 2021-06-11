@@ -28,3 +28,7 @@ Prototype:https://docs.google.com/document/d/1lBjIP9ZUeaBPYP2nQREMJ4cS84A-YERTrz
 6/6/21 Vivien: cleaned up graphics of the game.
 
 6/10/21 Sarah: started implementing the shop
+
+6/10/21 Vivien: finished implementing shop and hats.
+
+6/11/21 Vivien: cleaned up code, and made pressing keys faster.
