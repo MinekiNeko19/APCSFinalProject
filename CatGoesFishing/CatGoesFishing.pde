@@ -64,9 +64,11 @@ void draw() {
   if (keyPressed) {
     if (keyCode == LEFT) {
       player.moveLeft(boatSpeed);
+      
     }
     if (keyCode == RIGHT) {
       player.moveRight(boatSpeed);
+     
     }
     if (keyCode == UP) {
       player.reelLine();
@@ -86,14 +88,14 @@ void draw() {
       instructions = !instructions;
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 200 && keyCode == 16) { // z key
+        player.rod().by()<= 200 && keyCode == 16) { // shift key
       Fish temp = player.sell();
       swimmers.remove(temp);
       c.addStat(temp);
       swimmers.add(new Fish());
     }
     if (player.rod().checkHook() != null &&
-        player.rod().by()<= 200 && keyCode == DOWN) {//shift key
+        player.rod().by()<= 200 && keyCode == DOWN) {
       swimmers.remove(player.makeBait());
       swimmers.add(new Fish());
     }    

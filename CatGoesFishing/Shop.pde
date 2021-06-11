@@ -122,10 +122,38 @@ private class ShopItem {
   }
   void drawHat(){
     noStroke();
+    int startX=(x-w/2)+w/3;
+    int startY=y-h;
     if (purchased && equipped){
-        fill(255);
-        rect((x-w/2+w/2),y-20, 5*w/3,20);
+      if(name.equals("Top Hat")){
+        fill(0);
+        rect(startX,startY-10,w/3,10);
+      }
     }
+    if (keyPressed) {
+    if (keyCode == LEFT) {
+      moveLeft(10);
+    }
+    if (keyCode == RIGHT) {
+      moveRight(10);
+    }
+    void moveLeft(int step) {
+    x = x-step;
+    if (x< w/2) { 
+      x = w/2;
+    }
+   
+  }
+   }
+  }
+   
+  
+  void moveRight(int step) {
+      x = x+step;
+      if (x>width-w/2) { 
+        x = width-w/2;
+      }
+    
   }
   int price(){
     return price;
