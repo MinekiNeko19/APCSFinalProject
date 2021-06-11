@@ -127,7 +127,7 @@ private class ShopItem {
     if (purchased && equipped){
       if(name.equals("Top Hat")){
         fill(0);
-        rect(startX,startY-10,w/3,10);
+        rect(startX,startY-10,w/3,20);
       }
     }
     if (keyPressed) {
@@ -137,17 +137,17 @@ private class ShopItem {
     if (keyCode == RIGHT) {
       moveRight(10);
     }
-    void moveLeft(int step) {
+    
+   }
+  }
+   
+  void moveLeft(int step) {
     x = x-step;
     if (x< w/2) { 
       x = w/2;
     }
    
   }
-   }
-  }
-   
-  
   void moveRight(int step) {
       x = x+step;
       if (x>width-w/2) { 
